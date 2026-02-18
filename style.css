@@ -54,7 +54,7 @@ img{max-width:100%;display:block}
 
 .nav{
   display:flex;
-  gap:28px;
+  gap:63px;
   font-weight:600;
   letter-spacing:.2px;
 }
@@ -154,6 +154,7 @@ img{max-width:100%;display:block}
   font-size:27px;
   line-height:1.05;
   font-weight:800;
+  color:var(--text);
 }
 
 /* Button */
@@ -209,6 +210,11 @@ img{max-width:100%;display:block}
 }
 
 .footer-right a:hover{ opacity:1; }
+
+.nav-link--shop{
+  color:var(--accent);
+  font-weight:600;
+}
 
 /* Mobile */
 @media (max-width:900px){
