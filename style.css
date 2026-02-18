@@ -10,6 +10,8 @@
   --container:1120px;
   --radius:18px;
   --header-h:120px;
+  --strip-h:60px;
+  --footer-h:88px;
 }
 
 *{box-sizing:border-box}
@@ -46,10 +48,9 @@ img{max-width:100%;display:block}
 }
 
 .brand img{
-  height: 112px;
-  width: auto;
+  height:112px;
+  width:auto;
 }
-
 
 .nav{
   display:flex;
@@ -58,9 +59,7 @@ img{max-width:100%;display:block}
   letter-spacing:.2px;
 }
 
-.nav a{
-  opacity:.92;
-}
+.nav a{ opacity:.92; }
 .nav a:hover{
   opacity:1;
   text-decoration:underline;
@@ -68,49 +67,62 @@ img{max-width:100%;display:block}
 }
 
 /* Pattern strip */
-.pattern-strip {
-  height: 60px;
-  width: 100%;
-  background-image: url("./assets/pattern.svg");
-  background-repeat: repeat-x;
-  background-position: left center;
-  background-size: auto 60px;
+.pattern-strip{
+  height:var(--strip-h);
+  width:100%;
+  background-image:url("./assets/pattern.svg");
+  background-repeat:repeat-x;
+  background-position:left center;
+  background-size:auto var(--strip-h);
 }
- 
 
-
-/* Page layout panels */
+/* Page layout */
 .page{
-  padding:48px 0 64px;
+  min-height:calc(100vh - var(--header-h) - var(--strip-h) - var(--footer-h));
+  display:flex;
+  align-items:stretch;
 }
 
 .split{
   display:grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap:40px;
-  align-items:center;
+  grid-template-columns:1fr 1fr;
+  align-items:stretch;
+  width:100%;
 }
 
+/* Left panel */
 .panel-left{
-  padding:44px 44px 52px;
-  background:linear-gradient(90deg, rgba(255,255,255,.04), rgba(255,255,255,0));
-  border-radius:var(--radius);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:64px 56px 72px 48px;
+  background:none;
 }
 
+/* Right panel */
 .panel-right{
-  padding:44px;
-  background:linear-gradient(90deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-  border-radius:var(--radius);
   display:flex;
+  align-items:center;
   justify-content:center;
+  background:var(--bg);
+  padding:0;
+  overflow:hidden;
+}
+
+/* Hero image — equal padding top/bottom via parent's padding */
+.hero-media{
+  width:100%;
+  max-width:480px;
+  height:auto;
+  object-fit:contain;
 }
 
 /* Typography */
 .h1{
-  font-size:64px;
-  line-height:1.02;
-  letter-spacing:-1.2px;
-  margin:0 0 18px;
+  font-size:72px;
+  line-height:1.0;
+  letter-spacing:-1.5px;
+  margin:0 0 32px;
   font-weight:800;
 }
 
@@ -123,11 +135,11 @@ img{max-width:100%;display:block}
 }
 
 .lede{
-  font-size:24px;
-  line-height:1.5;
+  font-size:22px;
+  line-height:1.55;
   color:var(--muted);
-  margin:0 0 28px;
-  max-width:46ch;
+  margin:0 0 40px;
+  max-width:38ch;
 }
 
 .body{
@@ -138,43 +150,67 @@ img{max-width:100%;display:block}
   max-width:58ch;
 }
 
-/* Buttons */
+/* Button */
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:16px 28px;
-  border-radius:12px;
-  font-weight:800;
+  padding:20px 0;
+  border-radius:10px;
+  font-weight:700;
+  font-size:18px;
   background:var(--gold);
   color:#121212;
   border:0;
   cursor:pointer;
-  min-width:220px;
-  box-shadow: 0 16px 30px rgba(0,0,0,.35);
+  width:320px;
+  max-width:100%;
+  box-shadow:0 8px 24px rgba(0,0,0,.3);
+  letter-spacing:.1px;
 }
-.btn:hover{filter:brightness(1.03)}
-.btn:active{transform:translateY(1px)}
+.btn:hover{ filter:brightness(1.06) }
+.btn:active{ transform:translateY(1px) }
 
-/* Images */
-.hero-media{
-  width:min(420px, 100%);
-  height:auto;
-}
-
+/* About portrait */
 .portrait{
-  width:min(430px, 100%);
+  width:min(430px,100%);
   border-radius:14px;
   overflow:hidden;
   box-shadow:0 18px 42px rgba(0,0,0,.45);
 }
 
+/* Footer */
+.site-footer{
+  height:var(--footer-h);
+  display:flex;
+  align-items:center;
+  border-top:1px solid rgba(255,255,255,0.08);
+  background:#0b0b0b;
+}
+
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:14px;
+  opacity:.85;
+  width:100%;
+}
+
+.footer-right a{
+  text-decoration:none;
+  color:#caa24c;
+}
+
+.footer-right a:hover{ opacity:1; }
+
 /* Mobile */
-@media (max-width: 900px){
-  .split{grid-template-columns:1fr}
-  .panel-left,.panel-right{padding:28px}
-  .h1{font-size:44px}
-  .h2{font-size:38px}
-  .lede{font-size:20px}
-  .btn{min-width:200px}
+@media (max-width:900px){
+  .split{ grid-template-columns:1fr }
+  .panel-left{ padding:40px 28px; }
+  .panel-right{ min-height:360px; padding:40px 28px; }
+  .h1{ font-size:44px; }
+  .h2{ font-size:38px; }
+  .lede{ font-size:20px; }
+  .btn{ width:100%; }
 }
