@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Contáctanos para dudas sobre Nole Protein." />
+  <title>Contacto — Nole Protein</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Nole Protein home">
+        <img src="./assets/logo.svg" alt="Nole protein" />
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="coming-soon.html" class="nav-link nav-link--shop">Tienda</a>
+        <a href="./about.html">Nosotros</a>
+        <a href="./contacto.html">Contacto</a>
+      </nav>
+    </header>
+  </div>
+
+  <div class="pattern-strip" role="presentation"></div>
+
+  <main class="contact-page">
+    <div class="container contact-inner">
+      <section class="contact-card" aria-labelledby="contact-title">
+        <h1 id="contact-title" class="contact-title">Contacto</h1>
+        <p class="contact-copy">Cuéntanos en qué te podemos ayudar y te responderemos pronto.</p>
+
+        <form class="contact-form" method="POST" action="PASTE_FORMSPREE_ENDPOINT_HERE">
+          <input type="hidden" name="_next" value="./gracias.html" />
+
+          <div class="form-field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required />
+          </div>
+
+          <div class="form-field">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+
+          <div class="form-field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+          </div>
+
+          <button class="btn" type="submit">Enviar mensaje</button>
+
+          <p class="form-feedback is-hidden" aria-live="polite">Gracias, mensaje enviado.</p>
+          <p class="form-error-copy">Si ocurre un problema al enviar, intenta de nuevo o escribe a contacto@noleprotein.com.</p>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">© 2026 Nole</div>
+      <div class="footer-right">
+        <a href="mailto:contacto@noleprotein.com">contacto@noleprotein.com</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
