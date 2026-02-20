@@ -15,11 +15,26 @@
         <img src="./assets/logo.svg" alt="Nole protein" />
       </a>
 
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button"
+        aria-label="Abrir menú"
+        aria-controls="mobile-nav"
+        aria-expanded="false">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="coming-soon.html" class="nav-link nav-link--shop">Tienda</a>
         <a href="./about.html">Nosotros</a>
         <a href="./contacto.html">Contacto</a>
       </nav>
+
+      <div class="mobile-nav" id="mobile-nav" hidden>
+        <a href="coming-soon.html">Tienda</a>
+        <a href="about.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
     </header>
   </div>
 
@@ -43,5 +58,44 @@
       </div>
     </div>
   </footer>
+  <script>
+  (() => {
+    const btn = document.querySelector('.nav-toggle');
+    const panel = document.querySelector('#mobile-nav');
+    if (!btn || !panel) return;
+
+    const close = () => {
+      panel.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Abrir menú');
+      document.body.classList.remove('mobile-nav-open');
+    };
+
+    const open = () => {
+      panel.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Cerrar menú');
+      document.body.classList.add('mobile-nav-open');
+    };
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      isOpen ? close() : open();
+    });
+
+    panel.addEventListener('click', (e) => {
+      if (e.target && e.target.matches('a')) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+
+    // Close menu when resizing up to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) close();
+    });
+  })();
+  </script>
 </body>
 </html>

@@ -15,11 +15,26 @@
         <img src="./assets/logo.svg" alt="Nole protein" />
       </a>
 
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button"
+        aria-label="Abrir menú"
+        aria-controls="mobile-nav"
+        aria-expanded="false">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="coming-soon.html" class="nav-link nav-link--shop">Tienda</a>
         <a href="./about.html">Nosotros</a>
         <a href="./contacto.html">Contacto</a>
       </nav>
+
+      <div class="mobile-nav" id="mobile-nav" hidden>
+        <a href="coming-soon.html">Tienda</a>
+        <a href="about.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
     </header>
   </div>
 
@@ -28,6 +43,10 @@
   <main class="page">
     <div class="container">
       <section class="split about-grid">
+        <div class="panel-right about-portrait-wrapper">
+          <img class="about-portrait" src="./assets/portrait.png" alt="Founder portrait" />
+        </div>
+
         <div class="panel-left">
           <h2 class="h2">¿Qué es Nole?</h2>
 
@@ -40,18 +59,14 @@
             ¿Por qué pinole?
           </p>
           <p class="body">
-            En la sierra de Chihuahua habita la población originaria rarámuri, que ha dominado el territorio por cientos de años. Su gente debe emprender de forma regular caminatas extensas por sus montes y barrancas. Han registrado viajes a pie de hasta 200 km en sólo 3 días. ¿Cuál es su secreto?
+            En la sierra de Chihuahua habita la población originaria rarámuri, que ha dominado el territorio por cientos de años. Su gente debe emprender de forma regular caminatas extensas por sus montes y barrancas. Han registrado viajes a pie de hasta 200 km en solo 3 días. ¿Cuál es su secreto?
           </p>
 
           <p class="body">
             Pinole: fuente de carbohidratos complejos en maíz tostado y molido al estilo Tarahumara; receta que les ha provisto la nutrición y energía que ha ganado fama y admiración alrededor del mundo. Con Nole Protein deseamos compartir las virtudes de este alimento tradicional mexicano y complementar tu día con una refrescante bebida de proteína y carbohidratos esenciales.
           </p>
 
-          <a class="btn" href="mailto:contacto@noleprotein.com">Contactar</a>
-        </div>
-
-        <div class="panel-right about-portrait-wrapper">
-          <img class="about-portrait" src="./assets/portrait.png" alt="Founder portrait" />
+          <a href="contacto.html" class="btn">Contactar</a>
         </div>
       </section>
     </div>
@@ -65,6 +80,46 @@
       </div>
     </div>
   </footer>
+
+  <script>
+  (() => {
+    const btn = document.querySelector('.nav-toggle');
+    const panel = document.querySelector('#mobile-nav');
+    if (!btn || !panel) return;
+
+    const close = () => {
+      panel.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Abrir menú');
+      document.body.classList.remove('mobile-nav-open');
+    };
+
+    const open = () => {
+      panel.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Cerrar menú');
+      document.body.classList.add('mobile-nav-open');
+    };
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      isOpen ? close() : open();
+    });
+
+    panel.addEventListener('click', (e) => {
+      if (e.target && e.target.matches('a')) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+
+    // Close menu when resizing up to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) close();
+    });
+  })();
+  </script>
 
 </body>
 </html>
