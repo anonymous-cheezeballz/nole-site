@@ -46,9 +46,7 @@
         <h1 id="contact-title" class="contact-title">Contacto</h1>
         <p class="contact-copy">Cuéntanos en qué te podemos ayudar y te responderemos pronto.</p>
 
-        <form class="contact-form" method="POST" action="PASTE_FORMSPREE_ENDPOINT_HERE">
-          <input type="hidden" name="_next" value="./gracias.html" />
-
+        <form id="contact-form" class="contact-form" method="POST">
           <div class="form-field">
             <label for="nombre">Nombre</label>
             <input id="nombre" name="nombre" type="text" required />
@@ -112,9 +110,40 @@
       if (e.key === 'Escape') close();
     });
 
-    // Close menu when resizing up to desktop
     window.addEventListener('resize', () => {
       if (window.innerWidth > 900) close();
+    });
+  })();
+  </script>
+
+  <script>
+  (() => {
+    const form = document.getElementById("contact-form");
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const endpoint = "https://script.google.com/macros/s/AKfycbwKzRzaYLuDnEhTgr6CulLDS0r-4esIV4ISlYK6j7xw68hS2m3e4j0z46gHAyky1D4q/exec";
+
+      const data = {
+        nombre: form.nombre.value,
+        email: form.email.value,
+        mensaje: form.mensaje.value
+      };
+
+      try {
+        await fetch(endpoint, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain" },
+          body: JSON.stringify(data)
+        });
+
+        window.location.href = "gracias.html";
+      } catch (err) {
+        alert("Error enviando mensaje");
+      }
     });
   })();
   </script>

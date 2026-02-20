@@ -152,6 +152,8 @@ img{max-width:100%;display:block}
   width:100%;
   display:flex;
   align-items:center;
+  justify-content:center;
+  text-align:center;
   padding-top:clamp(40px, 8vh, 96px);
   padding-bottom:clamp(40px, 8vh, 96px);
 }
@@ -422,6 +424,23 @@ img{max-width:100%;display:block}
 .nav-link--shop{
   color:var(--accent);
   font-weight:600;
+}
+
+.page-gracias .page{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:calc(100vh - var(--header-h) - var(--strip-h) - var(--footer-h));
+}
+
+.page-gracias .container{
+  text-align:center;
+}
+
+.page-gracias .btn{
+  margin-top:3rem;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 /* Mobile */
