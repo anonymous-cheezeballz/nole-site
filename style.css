@@ -510,3 +510,380 @@ img{max-width:100%;display:block}
 @media (min-width:901px){
   .page-about .panel-right{ display:flex; }
 }
+
+/* Conoce Más Page */
+.conoce-main{
+  min-height:calc(100vh - var(--header-h) - var(--strip-h) - var(--footer-h));
+}
+
+.conoce-shell{
+  padding-top:clamp(40px, 7vw, 84px);
+  padding-bottom:clamp(56px, 8vw, 108px);
+}
+
+.conoce-section + .conoce-section{
+  margin-top:clamp(52px, 8vw, 88px);
+}
+
+.conoce-hero{
+  display:grid;
+  grid-template-columns:minmax(0, .92fr) minmax(320px, .88fr);
+  gap:clamp(32px, 5vw, 72px);
+  align-items:start;
+}
+
+.conoce-kicker{
+  margin:0 0 16px;
+  color:var(--gold);
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.conoce-title{
+  margin-bottom:0;
+  max-width:11ch;
+  font-size:clamp(48px, 6vw, 64px);
+}
+
+.conoce-hero-copy{
+  max-width:540px;
+  transform:translateY(5px);
+}
+
+.hero-claims{
+  margin:24px 0 0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  color:#cfcfcf;
+  font-size:16px;
+}
+
+.hero-claims li{
+  list-style:none;
+  opacity:.85;
+  padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+.hero-claims li:first-child{
+  padding-top:0;
+  border-top:0;
+}
+
+.conoce-card{
+  border:1px solid var(--stroke);
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border-radius:var(--radius);
+  box-shadow:0 18px 40px rgba(0,0,0,.28);
+}
+
+.conoce-hero-media{
+  display:block;
+}
+
+.conoce-image-card--hero{
+  width:100%;
+  max-width:460px;
+  overflow:hidden;
+}
+
+.conoce-feature-media--hero{
+  max-width:400px;
+  transform:scale(1.2);
+  transform-origin:top center;
+}
+
+.conoce-section-heading{
+  margin-bottom:26px;
+}
+
+.conoce-section-heading .h2{
+  margin-bottom:0;
+  max-width:26ch;
+}
+
+.conoce-section-subtitle{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.45;
+}
+
+.conoce-steps-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:20px;
+}
+
+.conoce-nutrition-card,
+.conoce-step-card,
+.conoce-compare-card,
+.conoce-image-card{
+  padding:24px;
+}
+
+.conoce-section-heading--compact{
+  margin-bottom:16px;
+}
+
+.conoce-meal-layout{
+  display:grid;
+  gap:28px;
+}
+
+.conoce-image-card{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.conoce-feature-media{
+  width:100%;
+  max-width:460px;
+  border-radius:14px;
+  object-fit:contain;
+}
+
+.nutrition-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:32px;
+  max-width:1100px;
+  margin:80px auto 0 auto;
+}
+
+.nutrition-card{
+  width:100%;
+  height:100%;
+  max-width:none;
+  padding:28px 32px;
+}
+
+.nutrition-card--compact{
+  align-self:start;
+}
+
+.nutrition-card--quality{
+  grid-column:auto;
+}
+
+.nutrition-card--serving{
+  grid-column:auto;
+}
+
+.nutrition-card--apple{
+  grid-column:auto;
+}
+
+.nutrition-card--guava{
+  grid-column:auto;
+}
+
+.nutrition-featured .conoce-table{
+  max-width:640px;
+}
+
+.conoce-card-title{
+  margin:0 0 18px;
+  font-size:20px;
+  line-height:1.2;
+  letter-spacing:-.03em;
+}
+
+.conoce-table{
+  display:grid;
+  gap:0;
+}
+
+.conoce-table-row{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  padding:12px 0;
+  border-top:1px solid rgba(255,255,255,.08);
+  font-size:15px;
+  line-height:1.45;
+}
+
+.conoce-table-row:first-child{
+  border-top:1px solid rgba(202,162,74,.28);
+}
+
+.conoce-table-row span:first-child{
+  color:var(--muted);
+}
+
+.conoce-table-row span:last-child{
+  text-align:right;
+  font-weight:700;
+}
+
+.conoce-data-section{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.conoce-data-section .btn{
+  flex:0 0 auto;
+}
+
+.conoce-kicker{
+  margin-bottom:20px;
+}
+
+.conoce-steps-section{
+  padding-top:clamp(12px, 2vw, 24px);
+}
+
+.conoce-step-card{
+  position:relative;
+  aspect-ratio:1 / 1;
+  overflow:hidden;
+  border-radius:16px;
+  padding:0;
+}
+
+.conoce-step-number{
+  display:inline-flex;
+  width:44px;
+  height:44px;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  background:rgba(202,162,74,.16);
+  color:var(--gold);
+  font-weight:800;
+  font-size:18px;
+  position:absolute;
+  top:20px;
+  left:20px;
+  z-index:3;
+}
+
+.conoce-step-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .6s ease;
+}
+
+.conoce-step-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,.75) 0%,
+    rgba(0,0,0,.4) 40%,
+    rgba(0,0,0,.1) 100%
+  );
+}
+
+.conoce-step-content{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:24px;
+  z-index:2;
+}
+
+.conoce-step-card .conoce-card-title{
+  color:#E8EDF2;
+  font-size:28px;
+  margin:0;
+}
+
+.conoce-step-card:hover .conoce-step-bg{
+  transform:scale(1.05);
+}
+
+@supports not (aspect-ratio:1 / 1){
+  .conoce-step-card{
+    width:100%;
+  }
+
+  .conoce-step-card::before{
+    content:"";
+    display:block;
+    padding-top:100%;
+  }
+}
+
+.conoce-story-copy{
+  max-width:760px;
+}
+
+.conoce-story-copy .body{
+  max-width:none;
+}
+
+@media (max-width:900px){
+  .conoce-shell{
+    padding-top:36px;
+    padding-bottom:56px;
+  }
+
+  .conoce-hero,
+  .conoce-meal-layout,
+  .conoce-data-section{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .conoce-steps-grid{
+    grid-template-columns:1fr;
+  }
+
+  .conoce-data-section{
+    align-items:start;
+  }
+
+  .conoce-nutrition-card,
+  .conoce-step-card,
+  .conoce-compare-card,
+  .conoce-image-card{
+    padding:22px;
+  }
+
+  .conoce-title{
+    max-width:12ch;
+  }
+
+  .conoce-hero-copy,
+  .conoce-image-card--hero{
+    max-width:none;
+    width:100%;
+    justify-self:stretch;
+  }
+
+  .conoce-feature-media{
+    max-width:360px;
+  }
+}
+
+@media (max-width:1024px){
+  .nutrition-grid{
+    grid-template-columns:1fr;
+    gap:24px;
+    margin-top:56px;
+  }
+
+  .nutrition-featured .conoce-table{
+    max-width:none;
+  }
+}
+
+.conoce-hero-text-offset {
+  position: relative;
+  top: 5px;
+}
